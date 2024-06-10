@@ -20,9 +20,8 @@ jobs:
       - name: Helm deploy - production
         if: github.ref == 'refs/heads/main'
         run: |
-          helm upgrade --install my-release ./charts/hello-world/ -f ./charts/hello-world/values-prod.yaml -n api-prod --create-namespace
-
+          echo " production "
       - name: Helm deploy - development
         if: github.ref == 'refs/heads/develop'
         run: |
-          helm upgrade --install my-release ./charts/hello-world/ -f ./charts/hello-world/values-dev.yaml -n api-dev --create-namespace  
+          echo "development"
