@@ -24,8 +24,7 @@ jobs:
         - name: docker build using CICD
           uses: docker/build-push-action@v2  
           with:
-            context: charts/hello-world/
-            file: charts/hello-world/Dockerfile
+            file: Dockerfile
             push: true
             tags: us-central1-docker.pkg.dev/hybrid-circle-420710/us-repo/nginx-app:latest       
         - name: configure azure helm repo
