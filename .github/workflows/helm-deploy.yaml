@@ -20,6 +20,7 @@ jobs:
         - uses: google-github-actions/get-gke-credentials@v2
           with:
             cluster_name: cluster-new
+            project_id: hybrid-circle-420710
             location: 'us-central1'
         - name: helm install
           run: |
