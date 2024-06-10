@@ -28,5 +28,5 @@ jobs:
             location: 'us-central1'
         - name: helm install
           run: |
-            helm upgrade --install myapp ./charts/hello-world/ --namespace test --create-namespace 
+            helm upgrade --install myapp ./charts/hello-world/
             kubectl get pods
