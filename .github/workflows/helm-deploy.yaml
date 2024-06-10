@@ -20,7 +20,12 @@ jobs:
           with:
             credentials_json: ${{ secrets.GCP_SA_KEY }}
         - name: docker build using CICD
-
+          uses: docker/build-push-action@v2  
+          with:
+            context: .
+            file: ./Dockerfile
+            push: false
+            tags: us-central1-docker.pkg.dev/hybrid-circle-420710/my-repo/nginx-app:latest       
         - name: configure azure helm repo
           uses: azure/setup-helm@v4.2.0
         - uses: google-github-actions/get-gke-credentials@v2
