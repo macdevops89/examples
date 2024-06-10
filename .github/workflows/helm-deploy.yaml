@@ -22,6 +22,7 @@ jobs:
             cluster_name: cluster-new
             project_id: hybrid-circle-420710
             location: 'us-central1'
+            credentials: ${{ secrets.GCP_SA_KEY }}
         - name: helm install
           run: |
             helm upgrade --install myapp ./charts/hello-world/ --namespace test --create-namespace 
