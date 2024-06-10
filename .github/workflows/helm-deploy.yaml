@@ -15,6 +15,8 @@ jobs:
           uses: google-github-actions/setup-gcloud@v2
           with:
             project_id: hybrid-circle-420710
+        - name: login to GAR
+          run: gcloud auth configure-docker us-central1-docker.pkg.dev --quiet
         - name: gcloud auth
           uses: google-github-actions/auth@v2
           with:
@@ -24,8 +26,8 @@ jobs:
           with:
             context: charts/hello-world/
             file: charts/hello-world/Dockerfile
-            push: false
-            tags: us-central1-docker.pkg.dev/hybrid-circle-420710/my-repo/nginx-app:latest       
+            push: true
+            tags: us-central1-docker.pkg.dev/hybrid-circle-420710/us-repo/nginx-app:latest       
         - name: configure azure helm repo
           uses: azure/setup-helm@v4.2.0
         - uses: google-github-actions/get-gke-credentials@v2
