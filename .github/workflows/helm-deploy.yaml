@@ -19,6 +19,7 @@ jobs:
           uses: google-github-actions/auth@v2
           with:
             credentials_json: ${{ secrets.GCP_SA_KEY }}
+        - name: docker build using CICD
 
         - name: configure azure helm repo
           uses: azure/setup-helm@v4.2.0
