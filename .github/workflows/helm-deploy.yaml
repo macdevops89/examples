@@ -26,7 +26,7 @@ jobs:
           with:
             file: Dockerfile
             push: true
-            tags: us-central1-docker.pkg.dev/hybrid-circle-420710/us-repo/nginx-app:latest       
+            tags: us-central1-docker.pkg.dev/hybrid-circle-420710/us-repo/nginx-app:${{github.run_id}}       
         - name: configure azure helm repo
           uses: azure/setup-helm@v4.2.0
         - uses: google-github-actions/get-gke-credentials@v2
@@ -36,5 +36,5 @@ jobs:
             location: 'us-central1'
         - name: helm install
           run: |
-            helm upgrade --install test ./charts/hello-world/
+            helm upgrade --install test ./charts/hello-world/ --set image.repository=us-central1-docker.pkg.dev/hybrid-circle-420710/us-repo/nginx-app --set image.tag=${{github.run_id}} 
             kubectl get pods
